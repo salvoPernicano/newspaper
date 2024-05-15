@@ -1,0 +1,38 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>News App</title>
+</head>
+<body>
+  <h1>Ultimi Articoli</h1>
+  <div id="container">
+      <ol id="articles"></ol>
+
+  </div>
+
+  <script>
+    fetch('http://localhost:8000/articles')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        const articlesContainer = document.getElementById('articles');
+        data.forEach(article => {
+          const listItem = document.createElement('li');
+          if(!article.link){
+            listItem.innerHTML = `<a class="inactive" href="${article.link}" target="_blank">${article.title}</a>`;
+          } else {
+            listItem.innerHTML = `<a href="${article.link}" target="_blank">${article.title}</a>`;
+          }
+
+          articlesContainer.appendChild(listItem);
+        });
+      })
+      .catch(error => console.error('Error:', error));
+  </script>
+</body>
+</html>

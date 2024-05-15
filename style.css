@@ -1,0 +1,44 @@
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#container{
+    margin-top: 50px;
+    padding: 1em;
+    text-align: center;
+}
+
+ol {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+}
+
+li{
+    flex-basis: 600px;
+    padding: 20px;
+    font-weight: bold;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a.inactive{
+    color: red;
+}
+
+
+li:nth-of-type(even){
+    background-color: rgb(173, 168, 165);
+}
